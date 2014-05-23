@@ -1,7 +1,7 @@
 'use strict';
 angular.module('ngDay2App')
 	.factory('PostsSvc', function($resource) {
-		return $resource('api/collections/brian',
+		return $resource('api/collections/demotiy',
 			{},
 			{
 				query: { method: 'GET', isArray: true },
@@ -9,7 +9,7 @@ angular.module('ngDay2App')
 			});
 	})
 	.factory('PostSvc', function($resource) {
-		return $resource('api/collections/brian/:id',
+		return $resource('api/collections/demotiy/:id',
 			{
 				id: '@_id'
 			},
