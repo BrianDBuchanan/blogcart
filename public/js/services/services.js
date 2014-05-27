@@ -1,7 +1,7 @@
 'use strict';
-angular.module('ngDay2App')
+angular.module('blogCartApp')
 	.factory('PostsSvc', function($resource) {
-		return $resource('api/collections/demotiy',
+		return $resource('api/collections/brian',
 			{},
 			{
 				query: { method: 'GET', isArray: true },
@@ -9,7 +9,7 @@ angular.module('ngDay2App')
 			});
 	})
 	.factory('PostSvc', function($resource) {
-		return $resource('api/collections/demotiy/:id',
+		return $resource('api/collections/brian :id',
 			{
 				id: '@_id'
 			},
@@ -19,4 +19,48 @@ angular.module('ngDay2App')
 				delete: { method: 'DELETE'}
 			}
 			)
-	});
+	})
+
+.factory('theCartSvc', function($resource) {
+		return $resource('api/collections/brianProducts',
+			{},
+			{
+				query: { method: 'GET', isArray: true },
+				create: { method: 'POST'}
+			});
+	})
+	.factory('theCartSvc', function($resource) {
+		return $resource('api/collections/brianProducts/:id',
+			{
+				id: '@_id'
+			},
+			{
+				show: { method: 'GET'},
+				edit: { method: 'PUT'},
+				delete: { method: 'DELETE'}
+			}
+			)
+	})
+	.factory('theCartSvc', function($resource) {
+		return $resource('api/collections/brianCart',
+			{},
+			{
+				query: { method: 'GET', isArray: true },
+				create: { method: 'POST'}
+			});
+	})
+	.factory('theCartSvc', function($resource) {
+		return $resource('api/collections/brianCart/:id',
+			{
+				id: '@_id'
+			},
+			{
+				show: { method: 'GET'},
+				edit: { method: 'PUT'},
+				delete: { method: 'DELETE'}
+			}
+			)
+	})
+
+	;
+

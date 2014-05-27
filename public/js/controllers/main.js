@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ngDay2App')
+angular.module('blogCartApp')
   .controller('PostsCtrl', function ($scope, $location, PostsSvc) {
 
     $scope.createPost = function() {
@@ -24,4 +24,29 @@ angular.module('ngDay2App')
   		$location.path('/blog');
   	};
 
+  });
+
+ angular.module('blogCartApp')
+  .controller('theCartCtrl', function ($scope, $location, theCartSvc) {
+
+    $scope.createCart = function() {
+      $location.path('/newcart');
+    };
+    $scope.newCart = function(cart) {
+      theCartSvc.create(cart)
+      $location.path('/cart');
+    };
+    $scope.carts = theCartSvc.query();
+  })
+  .controller('theCartCtrl', function($scope, $location, $routeParams, theCartSvc) {
+
+    $scope.product = theCartSvc.show({ id: $routeParams.id });
+    $scope.delete = function() { 
+      theCartSvc.delete({ id: $routeParams.id });
+      $location.path('/cart');
+    };
+    $scope.edit = function() {
+    theCartSvc.edit($scope.cart);
+      $location.path('/cart');
+    };
   });

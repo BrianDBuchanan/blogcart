@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-  .module('ngDay2App', [
+  .module('blogCartApp', [
     'ngCookies',
     'ngResource',
     'ngSanitize',
@@ -27,6 +27,38 @@ angular
       .when('/blog/:id/edit', {
         templateUrl: 'views/blog-editDetail.html',
         controller: 'PostCtrl'
+      })
+       .when('/product', {
+        templateUrl: 'views/tacoShop-list.html',
+        controller: 'cartProductsCtrl'
+      })
+      .when('/newProduct', {
+        templateUrl: 'views/Tacoshop-create.html',
+        controller: 'theCartCtrl'
+      })
+      .when('/product/:id', {
+        templateUrl: 'views/tacoshop-detail.html',
+        controller: 'theCartCtrl'
+      })
+      .when('/product/:id/edit', {
+        templateUrl: 'views/tacoshop-editDetail.html',
+        controller: 'theCartCtrl'
+      })
+      .when('/cart', {
+        templateUrl: 'views/cart-list.html',
+        controller: 'theCartCtrl'
+      })
+      .when('/newCart', {
+        templateUrl: 'views/cart-create.html',
+        controller: 'theCartCtrl'
+      })
+      .when('/cart/:id', {
+        templateUrl: 'views/cart-detail.html',
+        controller: 'cartProductsCtrl'
+      })
+      .when('/cart/:id/edit', {
+        templateUrl: 'views/cart-editDetail.html',
+        controller: 'cartProductCtrl'
       })
       .otherwise({
         redirectTo: '/'
